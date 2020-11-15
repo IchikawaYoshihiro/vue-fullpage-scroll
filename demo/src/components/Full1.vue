@@ -12,6 +12,9 @@
       <section>
         <button @click="handler('top')">↓</button>
       </section>
+      <section>
+        <router-link :to="{ name: 'full2' }">Router Link</router-link>
+      </section>
       <slot />
     </div>
   </main>

@@ -2,8 +2,8 @@
   <div id="app">
     <h1 v-if="!full">Vue Fullpage Scroll DEMO</h1>
     <div class="wrap">
-      <aside v-if="!full">Non full page supported</aside>
-      <vue-fullpage-scroll class="scroll">
+      <aside v-if="!full">You don't need a full screen to use it!</aside>
+      <vue-fullpage-scroll class="scroll" direction="top">
         <section>
           <label>
             <input type="checkbox" v-model="full" />

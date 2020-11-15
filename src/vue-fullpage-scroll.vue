@@ -1,5 +1,5 @@
 <template>
-  <div class="fullpage-scroll-box" :class="direction">
+  <div class="fullpage-scroll-box" :class="currentDirection">
     <transition
       @before-enter="beforeTransition"
       @before-leave="beforeTransition"
@@ -16,6 +16,10 @@
 export default {
   name: "vue-fullpage-scroll",
   props: {
+    direction: {
+      type: String,
+      default: "right",
+    },
     duration: {
       type: Number,
       default: 1,
@@ -27,8 +31,16 @@ export default {
   },
   data() {
     return {
-      direction: "left",
+      currentDirection: "left",
     };
+  },
+  created() {
+    this.currentDirection = this.direction;
+  },
+  watch: {
+    direction(val) {
+      this.currentDirection = val;
+    },
   },
   computed: {
     transition() {
@@ -41,9 +53,12 @@ export default {
     },
     afterTransition(el) {
       el.style.transition = null;
+      this.currentDirection = this.direction;
     },
-    handle({ direction = "left", to }) {
-      this.direction = direction;
+    handle({ direction = null, to }) {
+      if (direction) {
+        this.currentDirection = direction;
+      }
       this.$router.push(to).catch((e) => {});
     },
   },
