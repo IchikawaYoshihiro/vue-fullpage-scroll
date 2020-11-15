@@ -15,8 +15,10 @@ const router = new VueRouter({
 
 // import VueFullpageScroll from '@yosichikaw/vue-fullpage-scroll';
 // Vue.use(VueFullpageScroll);
+// for develop
 import VueFullpageScroll from '../../src/vue-fullpage-scroll.vue';
 Vue.component('VueFullpageScroll', VueFullpageScroll)
+
 import Vue2TouchEvents from 'vue2-touch-events';
 Vue.use(Vue2TouchEvents);
 
