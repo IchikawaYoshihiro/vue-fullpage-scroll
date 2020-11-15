@@ -1,0 +1,68 @@
+{
+  "name": "@yosichikaw/vue-fullpage-scroll",
+  "version": "0.1.0",
+  "main": "dist/vue-fullpage-scroll.umd.js",
+  "module": "dist/vue-fullpage-scroll.esm.js",
+  "unpkg": "dist/vue-fullpage-scroll.min.js",
+  "browser": {
+    "./sfc": "src/vue-fullpage-scroll.vue"
+  },
+  "scripts": {
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-fullpage-scroll.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-fullpage-scroll.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-fullpage-scroll.min.js",
+    "release": "npm run build & npm publish ./"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "rollup": "^1.17.0",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "rollup-plugin-vue": "^5.0.1",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "description": "full page scrolling in vue-router.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IchikawaYoshihiro/vue-fullpage-scroll.git"
+  },
+  "keywords": [
+    "vue.js",
+    "vue-router",
+    "fullpage",
+    "scroll"
+  ],
+  "author": "Yoshihiro Ichikawa <yosichikaw+npm@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IchikawaYoshihiro/vue-fullpage-scroll/issues"
+  },
+  "homepage": "https://github.com/IchikawaYoshihiro/vue-fullpage-scroll#readme"
+}
