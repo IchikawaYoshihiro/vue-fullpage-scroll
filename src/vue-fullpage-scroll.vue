@@ -1,7 +1,12 @@
 <template>
   <div class="fullpage-scroll-box" :class="direction">
-    <transition>
-      <router-view @fullpage-scroll="handle">
+    <transition
+      @before-enter="beforeTransition"
+      @before-leave="beforeTransition"
+      @after-enter="afterTransition"
+      @after-leave="afterTransition"
+    >
+      <router-view v-on="$listeners" @fullpage-scroll="handle">
         <slot></slot>
       </router-view>
     </transition>
@@ -10,12 +15,33 @@
 <script>
 export default {
   name: "vue-fullpage-scroll",
+  props: {
+    duration: {
+      type: Number,
+      default: 1,
+    },
+    mode: {
+      type: String,
+      default: "ease",
+    },
+  },
   data() {
     return {
       direction: "left",
     };
   },
+  computed: {
+    transition() {
+      return `all ${this.mode} ${this.duration}s`;
+    },
+  },
   methods: {
+    beforeTransition(el) {
+      el.style.transition = this.transition;
+    },
+    afterTransition(el) {
+      el.style.transition = null;
+    },
     handle({ direction = "left", to }) {
       this.direction = direction;
       this.$router.push(to).catch((e) => {});
@@ -33,7 +59,6 @@ export default {
   .v-leave-active,
   .v-enter-active {
     position: absolute;
-    transition: all ease 1s;
   }
   .v-leave,
   .v-enter-to {
