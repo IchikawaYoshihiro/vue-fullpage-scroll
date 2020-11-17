@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      currentDirection: "left",
+      currentDirection: "right",
     };
   },
   created() {
@@ -44,7 +44,9 @@ export default {
   },
   computed: {
     transition() {
-      return `all ${this.mode} ${this.duration}s`;
+      return this.currentDirection
+        ? `all ${this.mode} ${this.duration}s`
+        : null;
     },
   },
   methods: {
@@ -55,10 +57,8 @@ export default {
       el.style.transition = null;
       this.currentDirection = this.direction;
     },
-    handle({ direction = null, to }) {
-      if (direction) {
-        this.currentDirection = direction;
-      }
+    handle({ direction = "right", to }) {
+      this.currentDirection = direction;
       this.$router.push(to).catch((e) => {});
     },
   },

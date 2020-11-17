@@ -36,12 +36,13 @@ App.vue
 `router-link` や `$router.push` でページ遷移すると `direction` プロパティで指定した方向から次のページが登場します。
 
 方向を指定する場合はvue-router内のページから `fullpage-scroll` イベントを発火させて遷移してください。
+通常のページ遷移にするには `direction` に `null` を渡してください。
 
 ```
 $emit('fullpage-scroll', {direction, to});
 ```
 
-- `direction` : `left, right, top, bottom` のいずれか
+- `direction` : `'left', 'right', 'top', 'bottom', null` のいずれか
 - `to` : `router-link` で指定できる `to` オブジェクト
 
 SomePage.vue
@@ -69,6 +70,6 @@ export default {
 
 |Property|Type|Default|Description|
 |---|---|---|---|
-|direction|String|`right`| 次のページがどの方向から登場するか（`left, right, top, bottom`）|
-|mode|String|`ease`| トランジションの時間（秒）|
-|duration|Number|`1`| トランジションのモード|
+|direction|String|`right`| 次のページがどの方向から登場するか（`'left', 'right', 'top', 'bottom', null`）|
+|mode|String|`ease`| トランジションのモード |
+|duration|Number|`1`| トランジションの時間（秒） |

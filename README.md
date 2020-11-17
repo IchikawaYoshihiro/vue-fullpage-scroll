@@ -36,12 +36,13 @@ App.vue
 The next page appears from the direction specified by the `direction` property when a page transition is performed by `router-link` or `$router.push`.
 
 If you want to specify the direction, fire the `fullpage-scroll` event from a page in vue-router.
+Pass `null` to` direction` for normal page transitions.
 
 ```
 $emit('fullpage-scroll', {direction, to});
 ```
 
-- `direction`: One of `left, right, top or bottom`
+- `direction`: One of `'left', 'right', 'top', 'bottom', null`
 - `to`: An object specified by `router-link`
 
 SomePage.vue
@@ -69,6 +70,6 @@ export default {
 
 |Property|Type|Default|Description|
 |---|---|---|---|
-|direction|String|`right`| which direction the next page will appear from (`left, right, top, bottom`)|
-|mode|String|`ease`| transition time in seconds|
-|duration|Number|`1`| mode of Transition|
+|direction|String|`right`| which direction the next page will appear from (`'left', 'right', 'top', 'bottom', null`) |
+|mode|String|`ease`| mode of Transition |
+|duration|Number|`1`| transition time in seconds |

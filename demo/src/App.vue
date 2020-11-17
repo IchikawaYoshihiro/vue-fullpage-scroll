@@ -3,11 +3,23 @@
     <h1 v-if="!full">Vue Fullpage Scroll DEMO</h1>
     <div class="wrap">
       <aside v-if="!full">You don't need a full screen to use it!</aside>
-      <vue-fullpage-scroll class="scroll" direction="top">
+      <vue-fullpage-scroll class="scroll" :direction="direction">
         <section>
           <label>
             <input type="checkbox" v-model="full" />
             Full Page
+          </label>
+        </section>
+        <section>
+          <label>
+            Default direction
+            <select v-model="direction">
+              <option value="">Null</option>
+              <option value="left">Left</option>
+              <option value="right">right</option>
+              <option value="bottom">bottom</option>
+              <option value="top">top</option>
+            </select>
           </label>
         </section>
       </vue-fullpage-scroll>
@@ -19,6 +31,7 @@ export default {
   data() {
     return {
       full: false,
+      direction: "right",
     };
   },
 };
