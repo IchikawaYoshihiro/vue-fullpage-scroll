@@ -57,7 +57,7 @@ export default {
   methods: {
     handler() {
       this.$emit("fullpage-scroll", { 
-        direction: 'top', 
+        direction: 'bottom', 
         to: { name: "nextPage" } 
       });
     },
@@ -70,6 +70,6 @@ export default {
 
 |Property|Type|Default|Description|
 |---|---|---|---|
-|direction|String|`right`| 次のページがどの方向から登場するか（`'left', 'right', 'top', 'bottom', null`）|
+|direction|String|`left`| （現在のページが退場していく）スクロール方向。（`'left', 'right', 'top', 'bottom', null`）|
 |mode|String|`ease`| トランジションのモード |
 |duration|Number|`1`| トランジションの時間（秒） |

@@ -57,7 +57,7 @@ export default {
   methods: {
     handler() {
       this.$emit("fullpage-scroll", { 
-        direction: 'top', 
+        direction: 'bottom', 
         to: { name: "nextPage" } 
       });
     },
@@ -70,6 +70,6 @@ export default {
 
 |Property|Type|Default|Description|
 |---|---|---|---|
-|direction|String|`right`| which direction the next page will appear from (`'left', 'right', 'top', 'bottom', null`) |
-|mode|String|`ease`| mode of Transition |
-|duration|Number|`1`| transition time in seconds |
+|direction|String|`left`| Scroll direction (the current page exits). (`'left', 'right', 'top', 'bottom', null`) |
+|mode|String|`ease`| Mode of Transition |
+|duration|Number|`1`| Transition time in seconds |

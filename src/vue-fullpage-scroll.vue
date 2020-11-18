@@ -18,7 +18,7 @@ export default {
   props: {
     direction: {
       type: String,
-      default: "right",
+      default: "left",
     },
     duration: {
       type: Number,
@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      currentDirection: "right",
+      currentDirection: "left",
     };
   },
   created() {
@@ -57,7 +57,7 @@ export default {
       el.style.transition = null;
       this.currentDirection = this.direction;
     },
-    handle({ direction = "right", to }) {
+    handle({ direction = "left", to }) {
       this.currentDirection = direction;
       this.$router.push(to).catch((e) => {});
     },
