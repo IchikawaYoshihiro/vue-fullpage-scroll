@@ -4,7 +4,6 @@ A component that provides full page scrolling for vue-router.
 日本語： [README_ja.md](./README_ja.md)
 
 # demo
-https://vue-fullpage-scroll.ichi-dev.info
 
 This demo uses [vue-touch-events](https://www.npmjs.com/package/vue2-touch-events) to detect swipe events.
 

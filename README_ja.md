@@ -4,7 +4,6 @@ vue-router でフルページスクロールができるコンポーネント。
 English: [README.md](./README.md)
 
 # demo
-https://vue-fullpage-scroll.ichi-dev.info
 
 スワイプイベントの検知には [vue-touch-events](https://www.npmjs.com/package/vue2-touch-events) を使用しています。
 
